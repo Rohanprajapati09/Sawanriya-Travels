@@ -1,0 +1,478 @@
+:root {
+  --primary: #0a67ea;
+  --primary-dark: #0848a8;
+  --accent: #25d366;
+  --bg: #f7faff;
+  --white: #fff;
+  --glass-bg: rgba(255,255,255,0.68);
+  --glass-blur: 18px;
+  --shadow: 0 4px 24px rgba(10, 103, 234, 0.10);
+  --glass-shadow: 0 8px 32px rgba(10,103,234,0.09);
+  --gray: #444;
+}
+
+/* General styles */
+body {
+  font-family: 'Montserrat', 'Quicksand', Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--gray);
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Glassmorphism Card */
+.glass {
+  background: var(--glass-bg);
+  box-shadow: var(--glass-shadow);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,0.18);
+}
+
+/* Floating WhatsApp Button */
+.floating-whatsapp {
+  position: fixed;
+  bottom: 25px;
+  right: 28px;
+  z-index: 9999;
+  background: #25d366;
+  border-radius: 50%;
+  box-shadow: 0 6px 20px rgba(37,211,102,0.22);
+  width: 62px;
+  height: 62px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: floatBtn 2.8s ease-in-out infinite alternate;
+  transition: box-shadow 0.2s;
+}
+
+.floating-whatsapp img {
+  width: 38px;
+  height: 38px;
+}
+.floating-whatsapp:hover {
+  box-shadow: 0 12px 32px rgba(37,211,102,0.33);
+}
+@keyframes floatBtn {
+  from { transform: translateY(0);}
+  to { transform: translateY(-12px);}
+}
+
+/* Navbar */
+.navbar {
+  background: rgba(255,255,255,0.98);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  transition: background 0.2s;
+}
+.nav-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.1rem 0;
+}
+.logo {
+  height: 60px;
+  width:auto;
+  object-fit: contain;
+  font-size: 2.1rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+  letter-spacing: 1px;
+  font-family: 'Quicksand', sans-serif;
+}
+.logo span {
+  color: var(--primary);
+}
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+.nav-links li a {
+  text-decoration: none;
+  color: var(--gray);
+  font-weight: 500;
+  font-size: 1rem;
+  transition: color 0.2s;
+}
+.nav-links li a:hover, .nav-book-btn {
+  color: var(--primary);
+}
+.nav-book-btn {
+  background: var(--accent);
+  color: #fff !important;
+  padding: 0.5rem 1.2rem;
+  border-radius: 25px;
+  font-weight: 600;
+  margin-left: 1rem;
+  transition: background 0.2s;
+  text-decoration: none;
+  box-shadow: 0 2px 8px rgba(37,211,102,0.08);
+}
+.nav-book-btn:hover {
+  background: #1ebe5d;
+}
+.menu-toggle {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+/* Hero */
+.hero-section {
+  background: linear-gradient(120deg, var(--primary) 60%, #5fa8f5 100%);
+  color: var(--white);
+  position: relative;
+  overflow: hidden;
+  min-height: 520px;
+}
+.hero-bg {
+  position: absolute;
+  top: -200px; left: -220px;
+  width: 700px; height: 700px;
+  background: radial-gradient(circle at 25% 40%, #fff3, transparent 80%);
+  z-index: 1;
+  pointer-events: none;
+}
+.hero-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 480px;
+  padding: 3.5rem 0 2rem 0;
+  gap: 2rem;
+  position: relative;
+  z-index: 2;
+}
+.hero-content {
+  flex: 2;
+}
+.hero-content h1 {
+  font-size: 3.1rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -2px;
+  text-shadow: 0 4px 18px rgba(10,103,234,0.12);
+}
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  max-width: 480px;
+}
+.hero-btns {
+  display: flex;
+  gap: 1rem;
+}
+.whatsapp-btn {
+  background: var(--accent);
+  color: #fff;
+  padding: 0.7rem 1.5rem;
+  border-radius: 25px;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 1.05rem;
+  transition: background 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(37,211,102,0.08);
+  display: inline-block;
+}
+.whatsapp-btn:hover {
+  background: #1ebe5d;
+}
+.call-btn {
+  background: var(--primary-dark);
+  color: #fff;
+  padding: 0.7rem 1.5rem;
+  border-radius: 25px;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 1.05rem;
+  transition: background 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(10,103,234,0.10);
+  display: inline-block;
+}
+.call-btn:hover {
+  background: #04336e;
+}
+.hero-img {
+  flex: 1.2;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.hero-img img {
+  width: 340px;
+  max-width: 90vw;
+  border-radius: 20px;
+  background: #fff8;
+  box-shadow: 0 10px 32px rgba(0,0,0,0.10);
+  animation: float 2.8s ease-in-out infinite alternate;
+}
+@keyframes float {
+  from { transform: translateY(0);}
+  to { transform: translateY(-18px);}
+}
+.hero-wave {
+  position: absolute;
+  left: 0; right: 0; bottom: -1px;
+  width: 100%;
+  height: 70px;
+  background: url('https://svgshare.com/i/14oS.svg') repeat-x;
+  background-size: cover;
+  z-index: 3;
+}
+
+/* Fleet Section */
+.fleet-section {
+  padding: 4rem 0 2.5rem 0;
+  background: var(--bg);
+}
+.section-title {
+  font-size: 2.3rem;
+  text-align: center;
+  color: var(--primary-dark);
+  margin-bottom: 2.5rem;
+  font-weight: 700;
+  letter-spacing: -1px;
+}
+.fleet-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+  justify-content: center;
+}
+.fleet-card {
+  background: var(--glass-bg);
+  border-radius: 18px;
+  box-shadow: var(--glass-shadow);
+  width: 235px;
+  padding: 1.3rem 1rem 1.3rem 1rem;
+  text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.16);
+}
+.fleet-card:hover {
+  transform: translateY(-12px) scale(1.045);
+  box-shadow: 0 12px 32px rgba(10,103,234,0.17);
+}
+.fleet-card img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  box-shadow: 0 1px 8px rgba(0,0,0,0.07);
+}
+.fleet-card h3 {
+  margin: 0.2rem 0 0.3rem 0;
+  color: var(--primary);
+  font-size: 1.18rem;
+  font-weight: 700;
+}
+.fleet-card span {
+  display: block;
+  color: #777;
+  font-size: 0.97rem;
+  margin-bottom: 1.1rem;
+}
+.fleet-btns {
+  display: flex;
+  gap: 0.5rem;
+}
+.fleet-btns .whatsapp-btn, .fleet-btns .call-btn {
+  font-size: 0.95rem;
+  padding: 0.4rem 1.1rem;
+}
+
+/* Why Us Section */
+.whyus-section {
+  background: linear-gradient(110deg, #e3f0fd 70%, #d6f4e8 100%);
+  padding: 4rem 0 2.5rem 0;
+}
+.whyus-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+  justify-content: center;
+}
+.whyus-card {
+  background: var(--glass-bg);
+  border-radius: 18px;
+  box-shadow: var(--glass-shadow);
+  width: 240px;
+  padding: 2rem 1rem 1.5rem 1rem;
+  text-align: center;
+  min-height: 220px;
+  border: 1px solid rgba(255,255,255,0.13);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.whyus-card:hover {
+  transform: translateY(-7px) scale(1.045);
+  box-shadow: 0 12px 32px rgba(10,103,234,0.17);
+}
+.whyus-icon img {
+  width: 54px;
+  height: 54px;
+  margin-bottom: 0.8rem;
+  filter: drop-shadow(0 2px 8px #0a67ea15);
+}
+.whyus-card h4 {
+  color: var(--primary-dark);
+  margin-bottom: 0.4rem;
+  font-size: 1.13rem;
+  font-weight: 700;
+}
+.whyus-card p {
+  font-size: 0.96rem;
+  color: #555;
+}
+
+/* Contact Section */
+.contact-section {
+  padding: 3.5rem 0 2rem 0;
+  background: var(--bg);
+}
+.contact-box {
+  display: flex;
+  gap: 2.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+.contact-box > div {
+  background: var(--glass-bg);
+  border-radius: 14px;
+  box-shadow: var(--glass-shadow);
+  padding: 1.5rem 2.5rem;
+  min-width: 210px;
+  text-align: center;
+  border: 1px solid rgba(255,255,255,0.13);
+}
+.contact-box h4 {
+  margin-bottom: 0.7rem;
+  color: var(--primary-dark);
+  font-size: 1rem;
+  font-weight: 700;
+}
+.contact-link {
+  color: var(--primary);
+  font-size: 1.08rem;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s;
+  word-break: break-all;
+}
+.contact-link:hover {
+  color: var(--primary-dark);
+  text-decoration: underline;
+}
+
+/* Footer */
+footer {
+  background: var(--primary-dark);
+  color: #fff;
+  text-align: center;
+  padding: 1.1rem 0;
+  font-size: 1rem;
+  margin-top: 2rem;
+}
+.footer-socials {
+  margin-left: 10px;
+}
+.footer-socials a {
+  margin: 0 7px;
+  display: inline-block;
+  vertical-align: middle;
+}
+.footer-socials img {
+  width: 23px;
+  height: 23px;
+  filter: brightness(0) invert(1) drop-shadow(0 1px 8px #fff2);
+  transition: filter 0.2s;
+}
+.footer-socials img:hover {
+  filter: brightness(0.7) invert(0.7);
+}
+
+/* Responsive Styles */
+@media (max-width: 1000px) {
+  .hero-flex {
+    flex-direction: column;
+    text-align: center;
+    padding-top: 2.3rem;
+    padding-bottom: 2.3rem;
+  }
+  .hero-img {
+    justify-content: center;
+    margin-top: 2rem;
+  }
+  .hero-content h1 {
+    font-size: 2.1rem;
+  }
+  .section-title {
+    font-size: 1.7rem;
+  }
+  .fleet-card, .whyus-card {
+    width: 98vw;
+    max-width: 340px;
+  }
+}
+@media (max-width: 700px) {
+  .nav-flex {
+    flex-direction: row;
+    padding: 0.9rem 0;
+  }
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    gap: 0.8rem;
+    background: #fff;
+    position: absolute;
+    top: 65px;
+    right: 2vw;
+    padding: 1.3rem 1.6rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    z-index: 99;
+    min-width: 170px;
+    align-items: flex-end;
+  }
+  .nav-links.open {
+    display: flex;
+  }
+  .menu-toggle {
+    display: block;
+    color: var(--primary-dark);
+  }
+  .hero-img img {
+    width: 95vw;
+    max-width: 340px;
+  }
+  .fleet-grid, .whyus-grid, .contact-box {
+    flex-direction: column;
+    gap: 1.1rem;
+    align-items: center;
+  }
+  .fleet-card, .whyus-card {
+    width: 98vw;
+    max-width: 340px;
+  }
+}
